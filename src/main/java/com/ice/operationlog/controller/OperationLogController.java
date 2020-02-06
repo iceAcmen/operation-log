@@ -5,10 +5,7 @@ import com.ice.operationlog.mapper.entity.OperationLog;
 import com.ice.operationlog.service.OperationLogService;
 import com.ice.operationlog.service.dto.OperationLogDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Ice, You're very best
@@ -27,8 +24,11 @@ public class OperationLogController {
         operationLogService.save(operationLog);
     }
 
-    @GetMapping("/page")
-    public IPage<OperationLog> page(OperationLogDto operationLogDto){
-        return operationLogService.page(operationLogDto);
+    @PostMapping("/page")
+    public IPage<OperationLog> page(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize,
+                                    @RequestParam(value = "startTime", required = false) Long startTime,
+                                    @RequestParam(value = "endTime", required = false) Long endTime,
+                                    @RequestBody OperationLog queryParam){
+        return operationLogService.page(pageNo, pageSize, startTime, endTime, queryParam);
     }
 }

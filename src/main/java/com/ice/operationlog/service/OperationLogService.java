@@ -7,5 +7,5 @@ import com.ice.operationlog.service.dto.OperationLogDto;
 public interface OperationLogService {
     void save(OperationLog operationLog);
 
-    IPage<OperationLog> page(OperationLogDto operationLogDto);
+    IPage<OperationLog> page(Integer pageNo, Integer pageSize, Long startTime, Long endTime, OperationLog queryParam);
 }
