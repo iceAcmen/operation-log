@@ -1,18 +1,21 @@
-package com.ice.operationlog.repository.entity;
+package com.ice.operationlog.mapper.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
-public class OperationLogEntity {
+public class OperationLog {
 
     /** id */
-    private String id;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     /** operator_account */
     private String operatorAccount;
 
     /** operator_type */
-    private String operatorType;
+    private OperatorType operatorType;
 
     /** operator_name */
     private String operatorName;
@@ -30,18 +33,18 @@ public class OperationLogEntity {
     private String target;
 
     /** operation_time */
-    private String operationTime;
+    private Long operationTime;
 
     /** content */
     private String content;
 
     /** result */
-    private String result;
+    private OperationResult result;
 
     /** fail_reason */
     private String failReason;
 
     /** system */
-    private String system;
+    private OperationSystem system;
 
 }

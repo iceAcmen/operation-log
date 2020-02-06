@@ -1,4 +1,4 @@
-package com.ice.operationlog.common.operationlog;
+package com.ice.operationlog.common.operationlog.annos;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OperationLog {
     /**
-     * operation_log_model表中的key
+     * operation_log_model表中的model_key
      * @return
      */
     String value();

@@ -8,10 +8,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 /**
  * @author Ice, You're very best
  * @date 2020/2/5 17:23
- * @desc 操作日志工具类
+ * @desc 操作日志上下文工具
  */
 @Slf4j
-public class OperationLogUtil {
+public class OperationLogContextUtil {
 
     /**
      * 在操作日志的目标方法体中使用
@@ -27,10 +27,20 @@ public class OperationLogUtil {
         }
     }
 
+    /**
+     * 获取StandardEvaluationContext
+     * @param operationLogKey
+     * @return
+     */
     private static StandardEvaluationContext getStandardEvaluationContext(String operationLogKey){
         return (StandardEvaluationContext) RequestContextHolder.currentRequestAttributes().getAttribute(operationLogKey, 1);
     }
 
+    /**
+     * 将StandardEvaluationContext放入RequestContextHolder
+     * @param operationLogKey
+     * @param context
+     */
     public static void setStandardEvaluationContext(String operationLogKey, StandardEvaluationContext context){
         try {
             RequestContextHolder.currentRequestAttributes().setAttribute(operationLogKey, context, 1);

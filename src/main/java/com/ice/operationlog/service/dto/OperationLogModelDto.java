@@ -8,8 +8,8 @@ public class OperationLogModelDto {
     /** id */
     private String id;
 
-    /** key */
-    private String key;
+    /** modelKey */
+    private String modelKey;
 
     /** module */
     private String module;
