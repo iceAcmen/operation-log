@@ -1,7 +1,5 @@
 package com.ice.operationlog.common.operationlog.components;
 
-import com.ice.operationlog.common.operationlog.OperationLogAop;
-import com.ice.operationlog.common.operationlog.utils.OperationLogHttpRequestResolver;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
